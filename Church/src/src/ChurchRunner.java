@@ -1,3 +1,5 @@
+package src;
+
 import in.moni.external.Event;
 import in.moni.internal.Church;
 import in.moni.internal.Ritual;
