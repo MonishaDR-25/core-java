@@ -12,3 +12,4 @@ public class AIFilter extends Filter {
         System.out.println("Enhancing image details with AI");
     }
 }
+

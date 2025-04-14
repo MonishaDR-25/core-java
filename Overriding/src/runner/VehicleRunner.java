@@ -1,5 +1,6 @@
 package runner;
 
+
 import in.moni.external.*;
 import in.moni.external.MetroPass;
 import in.moni.internal.*;
@@ -11,15 +12,19 @@ public class VehicleRunner {
         System.out.println("========Vehicle Override and run time poly is======");
         Vehicle vehicle=new Vehicle();
         vehicle.move();
-
         System.out.println("Run time poly");
         Vehicle vehi=new Car();
         vehi.move();
-
         System.out.println("Subclass method");
         Car car=new Car();
         car.move();
         car.honk();
+        System.out.println("Typecasting");
+        Showroom showroom=new Showroom();
+        showroom.roomShow(vehicle);
+        showroom.roomShow(vehi);
+        showroom.roomShow(car);
+
 
         // 2. Appliance - WashingMachine
         Appliance appliance = new Appliance();
@@ -389,6 +394,10 @@ public class VehicleRunner {
         TVRemote tv = new TVRemote();
         tv.control();
         tv.changeChannel();
+        RemoteTester remoteTester=new RemoteTester();
+        remoteTester.testRemote(remote);
+        remoteTester.testRemote(tvRemote);
+        remoteTester.testRemote(tv);
 
         // 43. TicketMachine - TrainTicketMachine
         System.out.println("\n. TicketMachine - TrainTicketMachine");
@@ -399,6 +408,10 @@ public class VehicleRunner {
         TrainTicketMachine ttm = new TrainTicketMachine();
         ttm.issueTicket();
         ttm.showPlatformNumber();
+        TicketTester ticketTester = new TicketTester();
+        ticketTester.testMachine(machines);
+        ticketTester.testMachine(trainMachine);
+        ticketTester.testMachine(ttm);
 
         // 44. Membership - GymMembership
         System.out.println("\n. Membership - GymMembership");
@@ -409,6 +422,11 @@ public class VehicleRunner {
         GymMembership gm = new GymMembership();
         gm.register();
         gm.assignTrainer();
+        MembershipTester membershipTester = new MembershipTester();
+        membershipTester.testMembership(membership);
+        membershipTester.testMembership(gym);
+        membershipTester.testMembership(gym);
+
 
         // 45. Schedule - FlightSchedule
         System.out.println("\n. Schedule - FlightSchedule");
@@ -419,6 +437,10 @@ public class VehicleRunner {
         FlightSchedule fs = new FlightSchedule();
         fs.update();
         fs.rescheduleFlight();
+        ScheduleTester scheduleTester = new ScheduleTester();
+        scheduleTester.testSchedule(schedule);
+        scheduleTester.testSchedule(flightSchedule);
+        scheduleTester.testSchedule(fs);
 
         // 46. Shop - BookStore
         System.out.println("\n. Shop - BookStore");
@@ -429,6 +451,11 @@ public class VehicleRunner {
         BookStore bs = new BookStore();
         bs.open();
         bs.listGenres();
+        System.out.println("Using Shop Tester:");
+        ShopTester shopTester = new ShopTester();
+        shopTester.testShop(shop);
+        shopTester.testShop(bookstore);
+        shopTester.testShop(bs);
 
         // 47. Currency - CryptoCurrency
         System.out.println("\n. Currency - CryptoCurrency");
@@ -439,6 +466,11 @@ public class VehicleRunner {
         CryptoCurrency cc = new CryptoCurrency();
         cc.convert();
         cc.trackValue();
+        System.out.println("Using Currency Tester:");
+        CurrencyTester currencyTester = new CurrencyTester();
+        currencyTester.testCurrency(currency);
+        currencyTester.testCurrency(crypto);
+        currencyTester.testCurrency(cc);
 
         // 48. Festival - Diwali
         System.out.println("\n. Festival - Diwali");
@@ -449,6 +481,11 @@ public class VehicleRunner {
         Diwali d = new Diwali();
         d.celebrate();
         d.lightFirecrackers();
+        System.out.println("Using Festival Tester:");
+        FestivalTester festivalTester = new FestivalTester();
+        festivalTester.testFestival(festival);
+        festivalTester.testFestival(festival);
+        festivalTester.testFestival(d);
 
         // 49. Parcel - CourierParcel
         System.out.println("\n. Parcel - CourierParcel");
@@ -459,6 +496,11 @@ public class VehicleRunner {
         CourierParcel cp = new CourierParcel();
         cp.ship();
         cp.trackDelivery();
+        System.out.println("Using Parcel Tester:");
+        ParcelTester parcelTester = new ParcelTester();
+        parcelTester.testParcel(parcel);
+        parcelTester.testParcel(courier);
+        parcelTester.testParcel(cp);
 
         // 50. WaterSource - River
         System.out.println("\n. WaterSource - River");
@@ -469,6 +511,11 @@ public class VehicleRunner {
         River r = new River();
         r.flow();
         r.supportFishing();
+        System.out.println("Using Water Tester:");
+        WaterTester waterTester = new WaterTester();
+        waterTester.testWater(source);
+        waterTester.testWater(river);
+        waterTester.testWater(r);
 
         // 51. Contract - EmploymentContract
         System.out.println("\n. Contract - EmploymentContract");
@@ -479,6 +526,12 @@ public class VehicleRunner {
         EmploymentContract ec = new EmploymentContract();
         ec.sign();
         ec.assignRole();
+        System.out.println("Using Contract Tester:");
+        ContractTester contractTester = new ContractTester();
+        contractTester.testContract(contract);
+        contractTester.testContract(employment);
+        contractTester.testContract(ec);
+
 
         // 52. Permit - DrivingPermit
         System.out.println("\n. Permit - DrivingPermit");
@@ -489,6 +542,11 @@ public class VehicleRunner {
         DrivingPermit dp = new DrivingPermit();
         dp.authorize();
         dp.checkEligibility();
+        System.out.println("Using Permit Tester:");
+        PermitTester permitTester = new PermitTester();
+        permitTester.testPermit(permit);
+        permitTester.testPermit(drivingPermit);
+        permitTester.testPermit(dp);
 
         // 53. Election - PresidentialElection
         System.out.println("\n. Election - PresidentialElection");
@@ -499,6 +557,11 @@ public class VehicleRunner {
         PresidentialElection pe = new PresidentialElection();
         pe.conduct();
         pe.countVotes();
+        System.out.println("Using Election Tester:");
+        ElectionTester electionTester = new ElectionTester();
+        electionTester.testElection(election);
+        electionTester.testElection(presElection);
+        electionTester.testElection(pe);
 
         // 54. Hospital - ChildrenHospital
         System.out.println("\n. Hospital - ChildrenHospital");
@@ -509,6 +572,11 @@ public class VehicleRunner {
         ChildrenHospital ch = new ChildrenHospital();
         ch.admit();
         ch.provideToys();
+        System.out.println("Using Hospital Tester:");
+        HospitalTester hospitalTester = new HospitalTester();
+        hospitalTester.testHospital(hospital);
+        hospitalTester.testHospital(childrenHosp);
+        hospitalTester.testHospital(ch);
 
 
         // 56. SensorDevice - AirQualitySensor
@@ -520,6 +588,12 @@ public class VehicleRunner {
         AirQualitySensor aqs = new AirQualitySensor();
         aqs.monitor();
         aqs.reportPollutionLevel();
+        System.out.println("Using Sensor Tester:");
+        SensorTester sensorTester = new SensorTester();
+        sensorTester.testSensor(sensorDevice);
+        sensorTester.testSensor(airSensor);
+        sensorTester.testSensor(aqs);
+
 
         // 57. FestivalEvent - CulturalProgram
         System.out.println("\n. FestivalEvent - CulturalProgram");
@@ -530,6 +604,11 @@ public class VehicleRunner {
         CulturalProgram cp2 = new CulturalProgram();
         cp2.organize();
         cp2.inviteArtists();
+        System.out.println("Using Event Tester:");
+        FestivalEventTester eventTester = new FestivalEventTester();
+        eventTester.testEvent(festivalEvent);
+        eventTester.testEvent(cultural);
+        eventTester.testEvent(cp2);
 
         // 58. System - SecuritySystem
         System.out.println("\n. System - SecuritySystem");
@@ -540,6 +619,11 @@ public class VehicleRunner {
         SecuritySystem ss = new SecuritySystem();
         ss.start();
         ss.detectIntrusion();
+        System.out.println("Using System Tester:");
+        SystemTester systemTester = new SystemTester();
+        systemTester.testSystem(system);
+        systemTester.testSystem(security);
+        systemTester.testSystem(ss);
 
         // 59. Booth - VotingBooth
         System.out.println("\n. Booth - VotingBooth");
@@ -550,6 +634,11 @@ public class VehicleRunner {
         VotingBooth vb = new VotingBooth();
         vb.serve();
         vb.secureBallot();
+        System.out.println("Using Booth Tester:");
+        BoothTester boothTester = new BoothTester();
+        boothTester.testBooth(booth);
+        boothTester.testBooth(votingBooth);
+        boothTester.testBooth(vb);
 
         // 60. GameConsole - PlayStation
         System.out.println("\n. GameConsole - PlayStation");
@@ -560,6 +649,11 @@ public class VehicleRunner {
         PlayStation playstation = new PlayStation();
         playstation.loadGame();
         playstation.connectToNetwork();
+        System.out.println("Using Console Tester:");
+        ConsoleTester consoleTester = new ConsoleTester();
+        consoleTester.testConsole(console);
+        consoleTester.testConsole(ps);
+        consoleTester.testConsole(playstation);
 
         // 61. Museum - ScienceMuseum
         System.out.println("\n. Museum - ScienceMuseum");
@@ -570,6 +664,12 @@ public class VehicleRunner {
         ScienceMuseum sm = new ScienceMuseum();
         sm.displayArtifacts();
         sm.hostExperiment();
+        System.out.println("Using Museum Tester:");
+        MuseumTester museumTester = new MuseumTester();
+        museumTester.testMuseum(museum);
+        museumTester.testMuseum(scienceMuseum);
+        museumTester.testMuseum(sm);
+
 
         // 62. Loan - EducationLoan
         System.out.println("\n. Loan - EducationLoan");
@@ -577,9 +677,16 @@ public class VehicleRunner {
         loan.apply();
         Loan eduLoan = new EducationLoan();
         eduLoan.apply();
-        EducationLoan el = new EducationLoan();
-        el.apply();
-        el.submitDocuments();
+        EducationLoan educationLoan=new EducationLoan();
+        educationLoan.apply();
+        educationLoan.submitDocuments();
+        LoanProcessor loanProcess=new LoanProcessor();
+        System.out.println("Processing the Loan");
+        loanProcess.processLoan(loan);
+        System.out.println("Processing the Education Loan");
+        loanProcess.processLoan(eduLoan);
+        System.out.println("Sbmitting the documents");
+        loanProcess.processLoan(educationLoan);
 
         // 63. Factory - CarFactory
         System.out.println("\n. Factory - CarFactory");
@@ -630,6 +737,11 @@ public class VehicleRunner {
         NationalPark np = new NationalPark();
         np.maintain();
         np.protectWildlife();
+        System.out.println("Using Park Processor:");
+        ParkTester parkTester = new ParkTester();
+        parkTester.test(park);
+        parkTester.test(national);
+        parkTester.test(np);
 
         // 68. Festival - Christmas
         System.out.println("\n. Festival - Christmas");
@@ -640,6 +752,12 @@ public class VehicleRunner {
         Christmas xmas = new Christmas();
         xmas.celebrate();
         xmas.decorateTree();
+        System.out.println("Using Festival Processor:");
+        FestiTester festiTester = new FestiTester();
+        festiTester.testFesti(festi);
+        festiTester.testFesti(christmas);
+        festiTester.testFesti(xmas);
+
 
         // 69. ResearchCenter - SpaceResearchCenter
         System.out.println("\n. ResearchCenter - SpaceResearchCenter");
@@ -650,6 +768,12 @@ public class VehicleRunner {
         SpaceResearchCenter src = new SpaceResearchCenter();
         src.analyze();
         src.launchSatellite();
+        System.out.println("Using Research Processor:");
+        ResearchTester researchTester = new ResearchTester();
+        researchTester.test(rc);
+        researchTester.test(space);
+        researchTester.test(src);
+
 
         // 70. BankAccount - FixedDepositAccount
         System.out.println("\n. BankAccount - FixedDepositAccount");
@@ -660,6 +784,11 @@ public class VehicleRunner {
         FixedDepositAccount fda = new FixedDepositAccount();
         fda.access();
         fda.calculateMaturity();
+        System.out.println("Using Bank Processor:");
+        BankTester bankTester = new BankTester();
+        bankTester.test(bankaccount);
+        bankTester.test(fd);
+        bankTester.test(fda);
 
         // 71. Zoo - BirdSanctuary
         System.out.println("\n. Zoo - BirdSanctuary");
@@ -670,6 +799,11 @@ public class VehicleRunner {
         BirdSanctuary birdSanctuary = new BirdSanctuary();
         birdSanctuary.displayAnimals();
         birdSanctuary.feedBirds();
+        System.out.println("Using Zoo Processor:");
+        ZooTester zooTester = new ZooTester();
+        zooTester.test(zoo);
+        zooTester.test(sanctuary);
+        zooTester.test(birdSanctuary);
 
         // 72. LibraryCard - StudentLibraryCard
         System.out.println("\n. LibraryCard - StudentLibraryCard");
@@ -680,6 +814,11 @@ public class VehicleRunner {
         StudentLibraryCard slc = new StudentLibraryCard();
         slc.scan();
         slc.trackOverdueBooks();
+        System.out.println("Using Library Processor:");
+        LibraryTester libraryTester = new LibraryTester();
+        libraryTester.test(card);
+        libraryTester.test(student);
+        libraryTester.test(slc);
 
         // 73. Battery - LithiumBattery
         System.out.println("\n. Battery - LithiumBattery");
@@ -690,6 +829,11 @@ public class VehicleRunner {
         LithiumBattery lb = new LithiumBattery();
         lb.charge();
         lb.showChargeLevel();
+        System.out.println("Using Battery Processor:");
+        BatteryTester batteryTester = new BatteryTester();
+        batteryTester.test(battery);
+        batteryTester.test(lithium);
+        batteryTester.test(lb);
 
         // 74. Event - WeddingEvent
         System.out.println("\n. Event - WeddingEvent");
@@ -700,6 +844,11 @@ public class VehicleRunner {
         WeddingEvent we = new WeddingEvent();
         we.schedule();
         we.bookVenue();
+        System.out.println("Using Event Processor:");
+        EventTester eventTest = new EventTester();
+        eventTest.testEvent(event);
+        eventTest.testEvent(wedding);
+        eventTest.testEvent(we);
 
         // 75. Bill - ElectricityBill
         System.out.println("\n. Bill - ElectricityBill");
@@ -710,6 +859,11 @@ public class VehicleRunner {
         ElectricityBill eb = new ElectricityBill();
         eb.generate();
         eb.applySubsidy();
+        System.out.println("Using Bill Processor:");
+        BillTester billTester = new BillTester();
+        billTester.test(bill);
+        billTester.test(electricity);
+        billTester.test(eb);
 
         // 76. Menu - RestaurantMenu
         System.out.println("\n. Menu - RestaurantMenu");
@@ -720,6 +874,11 @@ public class VehicleRunner {
         RestaurantMenu rm = new RestaurantMenu();
         rm.display();
         rm.filterByCuisine();
+        System.out.println("Using Menu Processor:");
+        MenuTester menuTester = new MenuTester();
+        menuTester.test(menu);
+        menuTester.test(restaurant);
+        menuTester.test(rm);
 
         // 77. Post - BlogPost
         System.out.println("\n. Post - BlogPost");
@@ -730,6 +889,11 @@ public class VehicleRunner {
         BlogPost bp = new BlogPost();
         bp.publish();
         bp.addTags();
+        System.out.println("Using Post Processor:");
+        PostTester postTester = new PostTester();
+        postTester.test(post);
+        postTester.test(blog);
+        postTester.test(bp);
 
         // 78. Alert - WeatherAlert
         System.out.println("\n. Alert - WeatherAlert");
@@ -740,6 +904,12 @@ public class VehicleRunner {
         WeatherAlert wa = new WeatherAlert();
         wa.notice();
         wa.updateForecast();
+        System.out.println("Using Alert Processor:");
+        AlertTester alertTester = new AlertTester();
+        alertTester.test(alert);
+        alertTester.test(weather);
+        alertTester.test(wa);
+
 
         // 78. Wallet - DigitalWallet
         System.out.println("\n. Wallet - DigitalWallet");
@@ -750,6 +920,12 @@ public class VehicleRunner {
         DigitalWallet dw = new DigitalWallet();
         dw.pay();
         dw.scanQRCode();
+        System.out.println("Using Wallet Processor:");
+        WalletTester walletTester = new WalletTester();
+        walletTester.test(wallet);
+        walletTester.test(digital);
+        walletTester.test(dw);
+
 
         // 79. Workout - YogaSession
         System.out.println("\n. Workout - YogaSession");
@@ -760,6 +936,11 @@ public class VehicleRunner {
         YogaSession ys = new YogaSession();
         ys.start();
         ys.playRelaxingMusic();
+        System.out.println("Using Workout Processor:");
+        WorkoutTester workoutTester = new WorkoutTester();
+        workoutTester.test(workout);
+        workoutTester.test(yoga);
+        workoutTester.test(ys);
 
         // 80. Outlet - SmartOutlet
         System.out.println("\n. Outlet - SmartOutlet");
@@ -770,6 +951,11 @@ public class VehicleRunner {
         SmartOutlet so = new SmartOutlet();
         so.supplyPower();
         so.trackUsage();
+        System.out.println("Using Outlet Processor:");
+        OutletTester outletTester = new OutletTester();
+        outletTester.test(outlet);
+        outletTester.test(smart);
+        outletTester.test(so);
 
         // 81. CabService - ElectricCabService
         System.out.println("\n. CabService - ElectricCabService");
@@ -780,6 +966,11 @@ public class VehicleRunner {
         ElectricCabService ecs = new ElectricCabService();
         ecs.book();
         ecs.estimateCharge();
+        System.out.println("Using Cab Processor:");
+        CabTester cabTester = new CabTester();
+        cabTester.test(cab);
+        cabTester.test(electric);
+        cabTester.test(ecs);
 
         // 82. Lecture - OnlineLecture
         System.out.println("\n. Lecture - OnlineLecture");
@@ -790,6 +981,11 @@ public class VehicleRunner {
         OnlineLecture ol = new OnlineLecture();
         ol.deliver();
         ol.enableChat();
+        System.out.println("Using Lecture Processor:");
+        LectureTester lectureTester = new LectureTester();
+        lectureTester.test(lecture);
+        lectureTester.test(online);
+        lectureTester.test(ol);
 
         // 83. Form - ApplicationForm
         System.out.println("\n. Form - ApplicationForm");
@@ -800,6 +996,11 @@ public class VehicleRunner {
         ApplicationForm af = new ApplicationForm();
         af.submit();
         af.uploadDocuments();
+        System.out.println("Using Form Processor:");
+        FormTester formTester = new FormTester();
+        formTester.test(form);
+        formTester.test(application);
+        formTester.test(af);
 
         // 84. Connection - InternetConnection
         System.out.println("\n. Connection - InternetConnection");
@@ -810,6 +1011,11 @@ public class VehicleRunner {
         InternetConnection ic = new InternetConnection();
         ic.establish();
         ic.checkSpeed();
+        System.out.println("Using Connection Processor:");
+        ConnectionTester connectionTester = new ConnectionTester();
+        connectionTester.test(connection);
+        connectionTester.test(internet);
+        connectionTester.test(ic);
 
         // 85. Garage - BikeGarage
         System.out.println("\n. Garage - BikeGarage");
@@ -820,6 +1026,11 @@ public class VehicleRunner {
         BikeGarage bg = new BikeGarage();
         bg.service();
         bg.inflateTires();
+        System.out.println("Using Garage Processor:");
+        GarageTester garageTester = new GarageTester();
+        garageTester.test(garage);
+        garageTester.test(bike);
+        garageTester.test(bg);
 
         // 86. Advertisement - VideoAd
         System.out.println("\n. Advertisement - VideoAd");
@@ -830,6 +1041,11 @@ public class VehicleRunner {
         VideoAd va = new VideoAd();
         va.display();
         va.trackViews();
+        System.out.println("Using Ad Processor:");
+        AdTester adTester = new AdTester();
+        adTester.test(ad);
+        adTester.test(video);
+        adTester.test(va);
 
         // 87. Interview - TechInterview
         System.out.println("\n. Interview - TechInterview");
@@ -840,6 +1056,11 @@ public class VehicleRunner {
         TechInterview ti = new TechInterview();
         ti.conduct();
         ti.askCodingQuestion();
+        System.out.println("Using Interview Processor:");
+        InterviewTester interviewTester = new InterviewTester();
+        interviewTester.test(interview);
+        interviewTester.test(tech);
+        interviewTester.test(ti);
 
         // 88. Exam - OnlineExam
         System.out.println("\n. Exam - OnlineExam");
@@ -850,6 +1071,11 @@ public class VehicleRunner {
         OnlineExam oe = new OnlineExam();
         oe.evaluate();
         oe.autoGrade();
+        System.out.println("Using Exam Processor:");
+        ExamTester examTester = new ExamTester();
+        examTester.test(exam);
+        examTester.test(onlineExam);
+        examTester.test(oe);
 
         // 89. FuelStation - ElectricChargingStation
         System.out.println("\n. FuelStation - ElectricChargingStation");
@@ -860,6 +1086,11 @@ public class VehicleRunner {
         ElectricChargingStation electricChargingStation = new ElectricChargingStation();
         electricChargingStation.refill();
         electricChargingStation.chargeVehicle();
+        System.out.println("Using Fuel Processor:");
+        FuelTester fuelTester = new FuelTester();
+        fuelTester.test(fuel);
+        fuelTester.test(electrical);
+        fuelTester.test(electricChargingStation);
 
         // 90. Order - OnlineOrder
         System.out.println("\n. Order - OnlineOrder");
@@ -870,6 +1101,11 @@ public class VehicleRunner {
         OnlineOrder oo = new OnlineOrder();
         oo.process();
         oo.trackDeliveryStatus();
+        System.out.println("Using Order Processor:");
+        OrderTester orderTester = new OrderTester();
+        orderTester.test(order);
+        orderTester.test(on);
+        orderTester.test(oo);
 
         // 91. Cinema - IMAXCinema
         System.out.println("\n. Cinema - IMAXCinema");
@@ -880,6 +1116,11 @@ public class VehicleRunner {
         IMAXCinema ics = new IMAXCinema();
         ics.screenMovie();
         ics.adjustSurroundSound();
+        System.out.println("Using Cinema Processor:");
+        CinemaTester cinemaTester = new CinemaTester();
+        cinemaTester.test(cinema);
+        cinemaTester.test(imax);
+        cinemaTester.test(ics);
 
         // 92. Subscription - MagazineSubscription
         System.out.println("\n. Subscription - MagazineSubscription");
@@ -965,6 +1206,7 @@ public class VehicleRunner {
         medRec.action();
         medRec.updateDiagnosis();
 
+
         // 100.Filter-AIFilter
         System.out.println("\n. Base Filter:");
         Filter basicFilter = new Filter();
@@ -977,7 +1219,11 @@ public class VehicleRunner {
         neuralFilter.apply();
         neuralFilter.enhanceDetails();
 
-
+        System.out.println("Using filter Processor");
+        FilterProcessor filterProcessor=new FilterProcessor();
+        filterProcessor.process(basicFilter);
+        filterProcessor.process(advancedFilter);
+        filterProcessor.process(neuralFilter);
 
     }
 
