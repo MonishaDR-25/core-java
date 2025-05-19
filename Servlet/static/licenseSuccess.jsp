@@ -17,35 +17,34 @@
 
     <table class="table table-bordered table-striped">
         <thead class="table-dark">
-            <tr>
-                <th>Field</th>
-                <th>Value</th>
-            </tr>
+        <tr>
+            <th>Field</th>
+            <th>Value</th>
+        </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>Name</td>
-                <td>${dto.name}</td>
-            </tr>
-            <tr>
-                <td>Contact Number</td>
-                <td>${dto.contactNumber}</td>
-            </tr>
-            <tr>
-                <td>Father Name</td>
-                <td>${dto.fatherName}</td>
-            </tr>
-            <tr>
-                <td>Adhar Number</td>
-                <td>${dto.adharNumber}</td>
-            </tr>
-            <tr>
-                <td>Address</td>
-                <td>${dto.address}</td>
-            </tr>
+        <tr>
+            <td>Name</td>
+            <td>${dto.name}</td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td>${dto.contactNumber}</td>
+        </tr>
+        <tr>
+            <td>Father Name</td>
+            <td>${dto.fatherName}</td>
+        </tr>
+        <tr>
+            <td>Adhar Number</td>
+            <td>${dto.adharNumber}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>${dto.address}</td>
+        </tr>
         </tbody>
     </table>
 </div>
-
 </body>
 </html>

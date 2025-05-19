@@ -1,6 +1,8 @@
 package com.xworkz.servlet;
 
 import dto.LicenseDto;
+import service.LicenseService;
+import service.LicenseServiceImpl;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,19 +30,30 @@ public class LicenseServlet extends HttpServlet {
         req.setAttribute("adharNumber",adharNumber);
         req.setAttribute("address",address);
 
-        LicenseDto licenseDto= new LicenseDto();
+        LicenseDto licenseDto = new LicenseDto();
         licenseDto.setName(name);
         licenseDto.setContactNumber(contactNumber);
         licenseDto.setFatherName(fatherName);
         licenseDto.setAdharNumber(adharNumber);
         licenseDto.setAddress(address);
 
-        req.setAttribute("message", "Save Success");
         req.setAttribute("dto", licenseDto);
+        req.setAttribute("message", "Save Success");
 
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("licenseSuccess.jsp");
-        requestDispatcher.forward(req,resp);
+        LicenseService service = new LicenseServiceImpl();
+        boolean saved = service.save(licenseDto);
+
+        if (saved) {
+            req.setAttribute("message", "Save Success");
+            req.setAttribute("dto", licenseDto);
+            RequestDispatcher dispatcher = req.getRequestDispatcher("licenseSuccess.jsp");
+            dispatcher.forward(req, resp);
+        } else {
+            req.setAttribute("message", "Saving License Failed");
+            RequestDispatcher dispatcher = req.getRequestDispatcher("license.jsp");
+            dispatcher.forward(req, resp);
+        }
 
     }
 }
