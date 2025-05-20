@@ -13,6 +13,7 @@
 
 <div class="container">
     <h2 class="text-center mb-4">Donation Form</h2>
+    ${message}
     <form action="donation" method="post">
         <div class="mb-3">
             <label class="form-label">Donor Name</label>
