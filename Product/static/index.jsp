@@ -8,6 +8,7 @@
     <h1>Welcome</h1>
     <ul>
         <li><a href="Product.jsp">Product Form</a></li>
+         <li><a href="StampedeCase.jsp">Stampede Case</a></li>
     </ul>
 </body>
 </html>
