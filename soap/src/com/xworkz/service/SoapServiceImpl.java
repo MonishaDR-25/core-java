@@ -4,6 +4,8 @@ import com.xworkz.dto.SoapDto;
 import com.xworkz.repository.SoapRepository;
 import com.xworkz.repository.SoapRepositoryImpl;
 
+import java.util.Optional;
+
 public class SoapServiceImpl implements SoapService{
     @Override
     public String save(SoapDto soapDto) {
@@ -65,5 +67,17 @@ public class SoapServiceImpl implements SoapService{
         System.out.println("Soap data validated and saved successfully");
 
         return "success";
+    }
+
+    @Override
+    public Optional<SoapDto> findById(int id) {
+        System.out.println("Running findById in SoapServiceImpl");
+        if(id>0) {
+            System.out.println("soap id is valid:" + id);
+
+            SoapRepository soapRepository = new SoapRepositoryImpl();
+            return soapRepository.findById(id);
+        }
+        return SoapService.super.findById(id);
     }
 }

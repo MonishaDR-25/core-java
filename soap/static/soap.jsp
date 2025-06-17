@@ -32,7 +32,8 @@
 
                     <div class="mb-3">
                         <label for="manufactureDate" class="form-label">Manufacturing Date</label>
-                        <input type="date" class="form-control" name="manufactureDate" id="manufactureDate" required>
+                       <input type="date" name="manufactureDate" class="form-control" required />
+
                     </div>
 
                     <div class="mb-3">

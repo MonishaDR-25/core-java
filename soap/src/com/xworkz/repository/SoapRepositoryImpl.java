@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Optional;
 
 public class SoapRepositoryImpl implements SoapRepository {
 
@@ -31,10 +32,12 @@ public class SoapRepositoryImpl implements SoapRepository {
                 Connection connection = DriverManager.getConnection(url, username, password);
 
                 // Step 3: Create SQL query
-                String sql = "INSERT INTO soap " +
+                String sql = "INSERT INTO soap (id, name, brand, price, manufactureDate, fragrant, color) " +
                         "VALUES (0, '" + soapDto.getName() + "', '" + soapDto.getBrand() + "', " +
                         soapDto.getPrice() + ", '" + soapDto.getManufactureDate() + "', " +
-                        soapDto.isFragrant() + ", '" + soapDto.getColor() + "', now())";
+                        soapDto.isFragrant() + ", '" + soapDto.getColor() + "')";
+
+
 
                 // Step 4: Execute the query
                 Statement statement = connection.createStatement();
@@ -48,5 +51,12 @@ public class SoapRepositoryImpl implements SoapRepository {
         }
 
         return "failure";
+    }
+
+    @Override
+    public Optional<SoapDto> findById(int id) {
+        System.out.println("running findById in SoapRepositoryImpl");
+
+        return SoapRepository.super.findById(id);
     }
 }
