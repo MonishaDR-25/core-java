@@ -1,11 +1,10 @@
 package com.xworkz.repository;
 
+import com.xworkz.constant.DBProperties;
 import com.xworkz.dto.SoapDto;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.Optional;
 
 public class SoapRepositoryImpl implements SoapRepository {
@@ -29,7 +28,7 @@ public class SoapRepositoryImpl implements SoapRepository {
                 Class.forName("com.mysql.cj.jdbc.Driver");
 
                 // Step 2: Establish connection
-                Connection connection = DriverManager.getConnection(url, username, password);
+                Connection connection = DriverManager.getConnection(DBProperties.URL.getProp(),DBProperties.USER_NAME.getProp(),DBProperties.SECRET.getProp());
 
                 // Step 3: Create SQL query
                 String sql = "INSERT INTO soap (id, name, brand, price, manufactureDate, fragrant, color) " +
@@ -43,11 +42,12 @@ public class SoapRepositoryImpl implements SoapRepository {
                 Statement statement = connection.createStatement();
                 statement.executeUpdate(sql);
 
-                return "success";
+
 
             } catch (ClassNotFoundException | SQLException e) {
                 throw new RuntimeException(e);
             }
+            return "success";
         }
 
         return "failure";
@@ -57,6 +57,35 @@ public class SoapRepositoryImpl implements SoapRepository {
     public Optional<SoapDto> findById(int id) {
         System.out.println("running findById in SoapRepositoryImpl");
 
-        return SoapRepository.super.findById(id);
+        try
+        {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection connection=DriverManager.getConnection(DBProperties.URL.getProp(),DBProperties.USER_NAME.getProp(),DBProperties.SECRET.getProp());
+            String findByIdSQL= "select * from soap soa where soa.id="+id+"";
+            System.out.println("findById:"+findByIdSQL);
+            Statement statement=connection.createStatement();
+            ResultSet resultSet=statement.executeQuery(findByIdSQL);
+            System.out.println("resultSet:"+resultSet);
+            while(resultSet.next())
+            {
+                int pk=resultSet.getInt("id");
+                String name=resultSet.getString("name");
+                String brand=resultSet.getString("brand");
+                double price=resultSet.getDouble("price");
+                LocalDate manufactureDate=resultSet.getDate("manufactureDate").toLocalDate();
+                boolean fragrant =resultSet.getBoolean("fragrant");
+                String color=resultSet.getString("color");
+
+                SoapDto soapDto=new SoapDto(name, brand, price,manufactureDate, fragrant,color);
+                return Optional.of(soapDto);
+            }
+
+
+        }  catch (SQLException | ClassNotFoundException exception)
+        {
+            System.err.println("SQLException in findById "+exception.getMessage());
+        }
+
+        return Optional.empty();
     }
 }

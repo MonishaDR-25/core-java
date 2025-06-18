@@ -23,7 +23,7 @@
 
 
                     <div class="d-grid">
-                        <button type="submit" class="btn btn-success">Submit Soap Details</button>
+                        <button type="submit" class="btn btn-success">Submit </button>
                     </div>
                 </form>
             </div>
