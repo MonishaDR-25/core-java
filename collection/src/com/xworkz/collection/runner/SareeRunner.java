@@ -1,39 +1,45 @@
 package com.xworkz.collection.runner;
 
+import com.xworkz.collection.dto.CampingAccessoriesDto;
 import com.xworkz.collection.dto.SareeDto;
+import com.xworkz.collection.dto.TreeDto;
+import com.xworkz.collection.repository.SareeRepository;
+import com.xworkz.collection.repository.SareeRepositoryImpl;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Iterator;
 
 public class SareeRunner {
     public static void main(String[] args) {
 
-        SareeDto sareeDto1=new SareeDto("Marriage","Red","Silk",30000);
-        SareeDto sareeDto2=new SareeDto("Engagement","Green","Zari",20000);
-        SareeDto sareeDto3=new SareeDto("Sangeet","Maroon","Georgette",14000);
-        SareeDto sareeDto4=new SareeDto("Haldi","Yellow","Shiffon",2000);
-        SareeDto sareeDto5=new SareeDto("Mehandi","Olive Green","Lenin",5000);
-        SareeDto sareeDto6=new SareeDto("Funeral","White","Cotton",400);
-        SareeDto sareeDto7=new SareeDto("Reception","Orange","Raw Silk",50000);
-        SareeDto sareeDto8=new SareeDto("Office","Pink","Crepe",1988);
-        SareeDto sareeDto9=new SareeDto("Graduation","Violet","Netted",3000);
-        SareeDto sareeDto10=new SareeDto("Farewell","Purple","Semi Silk",5000);
+        SareeRepository sareeRepository = new SareeRepositoryImpl();
+        Collection<SareeDto> sarees = sareeRepository.findAll();
 
-        Collection<SareeDto> collection=new ArrayList<>();
-        collection.add(sareeDto1);
-        collection.add(sareeDto2);
-        collection.add(sareeDto3);
-        collection.add(sareeDto4);
-        collection.add(sareeDto5);
-        collection.add(sareeDto6);
-        collection.add(sareeDto7);
-        collection.add(sareeDto8);
-        collection.add(sareeDto9);
-        collection.add(sareeDto10);
-
-        for(SareeDto sareeDto:collection){
-            System.out.println(sareeDto.getType()+","+sareeDto.getColor()+","+sareeDto.getMaterial()+","+sareeDto.getCost());
+        System.out.println("------Using for each------");
+        for (SareeDto sareeDto : sarees) {
+            System.out.println(sareeDto.getType() + "," +
+                    sareeDto.getMaterial() + "," +
+                    sareeDto.getCost() + "," +
+                    sareeDto.getColor());
         }
 
+        System.out.println("Using Iterator");
+        Iterator<SareeDto> iterator = sarees.iterator();
+        while (iterator.hasNext()) {
+            SareeDto sareeDto = iterator.next();
+            System.out.println(sareeDto.getMaterial() + "," + sareeDto.getColor() + "," + sareeDto.getCost() + "," + sareeDto.getType());
+        }
+
+        System.out.println("Saree with cost>5000");
+        for(SareeDto sareeDto:sarees){
+            if(sareeDto.getCost()>5000){
+                System.out.println("Sarees above 5000 are:"+sareeDto.getCost());
+            }
+        }
+
+
+
     }
-}
+    }
+
