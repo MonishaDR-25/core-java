@@ -1,15 +1,13 @@
 package com.xworkz.collection.dto;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @Setter
 @ToString
 @AllArgsConstructor
+@EqualsAndHashCode
 public class AppliancesDto {
 
     private String name;

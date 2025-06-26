@@ -5,6 +5,7 @@ import com.xworkz.collection.dto.TreeDto;
 import com.xworkz.collection.repository.TreeRepository;
 import com.xworkz.collection.repository.TreeRepositoryImpl;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -30,8 +31,37 @@ public class TreeRunner {
                         System.out.println("Big Tree: " + tree.getTreeName() + " (" + tree.getSize() + ")");
                     }
                 }
+
+                // contains
+                TreeDto checkTree = new TreeDto("Banana Tree", "Light Green", 80);
+                System.out.println("\nContains 'Banana Tree'? " + trees.contains(checkTree)); // true
+
+                // remove
+                boolean removed = trees.remove(checkTree);
+                System.out.println("Removed 'Banana Tree'? " + removed);
+                System.out.println("Still contains 'Banana Tree'? " + trees.contains(checkTree)); // false
+
+                // isEmpty
+                System.out.println("\nIs tree collection empty? " + trees.isEmpty());
+
+                // addAll
+                Collection<TreeDto> newTrees = new ArrayList<>();
+                newTrees.add(new TreeDto("Banyan Tree", "Green", 500));
+                newTrees.add(new TreeDto("Coconut Tree", "Green", 150));
+                trees.addAll(newTrees);
+                System.out.println("\nTrees after addAll():" +trees.addAll(newTrees));
+
+
+                // removeAll
+                boolean removedAll = trees.removeAll(newTrees);
+                System.out.println("\nRemoved all new trees? " + removedAll);
+
+                // containsAll
+                Collection<TreeDto> originalTrees = treeRepo.findAll();
+                System.out.println("Contains all original trees? " + trees.containsAll(originalTrees));
             }
-        }
+            }
+
 
 
 

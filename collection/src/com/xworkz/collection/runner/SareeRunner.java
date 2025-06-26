@@ -38,8 +38,34 @@ public class SareeRunner {
             }
         }
 
+        // contains
+        SareeDto checkSaree = new SareeDto("Chiffon", "Green", "Chiffon", 1800);
+        System.out.println("\nContains 'Chiffon'? " + sarees.contains(checkSaree));
+
+        // remove
+        boolean removed = sarees.remove(checkSaree);
+        System.out.println("Removed 'Chiffon'? " + removed);
+        System.out.println("Still contains 'Chiffon'? " + sarees.contains(checkSaree));
+
+        // isEmpty
+        System.out.println("\nIs sarees collection empty? " + sarees.isEmpty());
+
+        // addAll
+        Collection<SareeDto> newSarees = new ArrayList<>();
+        newSarees.add(new SareeDto("Georgette", "Purple", "Georgette", 2200));
+        newSarees.add(new SareeDto("Linen", "Orange", "Linen", 3000));
+        sarees.addAll(newSarees);
+        System.out.println("\nAfter addAll():"+sarees.addAll(newSarees));
 
 
+        // removeAll
+        boolean removedAll = sarees.removeAll(newSarees);
+        System.out.println("\nRemoved all new sarees? " + removedAll);
+
+        // containsAll
+        Collection<SareeDto> originalSarees = sareeRepository.findAll();
+        System.out.println("Contains all original sarees? " + sarees.containsAll(originalSarees));
     }
+
     }
 

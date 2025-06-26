@@ -40,5 +40,34 @@ public class BookRunner {
                 System.out.println(book.getTitle() + " costs " + book.getPrice());
             }
         }
+
+        //contains method
+        BookDto checkDto=new BookDto("Ramayana", "Valmiki", "Epic", 500, 450);
+        System.out.println("Contains 'Ramayana'" +books.contains(checkDto));
+
+        //isEmpty
+        System.out.println("Is Book Data Empty?"+ books.isEmpty());
+
+        //remove
+        boolean removed=books.remove(checkDto);
+        System.out.println("Removed? 'Ramayana"+removed);
+        System.out.println("Contains 'Ramayana' after removal" +books.contains(checkDto));
+
+        //addAll
+        Collection<BookDto> additionalBooks=new ArrayList<>();
+        additionalBooks.add(new BookDto("Atomic Habits", "James Clear", "Self-help", 320, 399));
+        additionalBooks.add(new BookDto("Rich Dad Poor Dad", "Robert Kiyosaki", "Finance", 250, 299));
+        System.out.println("Add all Additional Books"+ books.addAll(additionalBooks));
+        System.out.println("After Adding additional books "+books.size());
+
+        //removeAll
+        boolean removedAll= books.removeAll(additionalBooks);
+        System.out.println("Removed all additional books"+removedAll);
+
+        //containsAll
+        boolean containsAllOriginal= books.containsAll(repository.findAll());
+        System.out.println("Contains all original Books"+containsAllOriginal);
+
+
     }
 }

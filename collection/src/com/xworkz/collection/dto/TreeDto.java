@@ -9,6 +9,7 @@ import java.io.Serializable;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class TreeDto implements Serializable {
 
     private String treeName;
