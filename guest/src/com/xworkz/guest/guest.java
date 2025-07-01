@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class guest {
     public static void main(String[] args) {
-        Set<String> set=new HashSet<String>();
+        Set<String> set=new HashSet<>();
         set.add("Monisha");
         set.add("Lavanya");
         set.add("Joseph");
