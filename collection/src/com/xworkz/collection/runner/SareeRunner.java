@@ -65,6 +65,8 @@ public class SareeRunner {
         // containsAll
         Collection<SareeDto> originalSarees = sareeRepository.findAll();
         System.out.println("Contains all original sarees? " + sarees.containsAll(originalSarees));
+
+        sarees.stream().sorted().forEach(System.out::println);
     }
 
     }
