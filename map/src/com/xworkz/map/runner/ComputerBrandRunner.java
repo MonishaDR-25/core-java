@@ -5,6 +5,7 @@ import com.xworkz.map.dto.ComputerDto;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class ComputerBrandRunner {
     public static void main(String[] args) {
@@ -94,6 +95,23 @@ public class ComputerBrandRunner {
         map.values().forEach(System.out::println);
 
 
+        System.out.println("Both key and value pair");
+        Set<Map.Entry<ComputerDto,BrandDto>> set=map.entrySet();
+       set.forEach(e->{
+           System.out.println("Key:"+e.getKey()+",value:"+e.getValue());
+
+       });
+
+        System.out.println("=========OR==========");
+        Set<Map.Entry<ComputerDto,BrandDto>> entrySet=map.entrySet();
+        entrySet.forEach(entry->{
+            ComputerDto computerDto=entry.getKey();
+            BrandDto brandDto=entry.getValue();
+            System.out.println("ComputerDto:"+computerDto+",BrandDto:"+brandDto);
+        });
+
+        System.out.println("Both key and value pair");
+        map.entrySet().forEach(System.out::println);
 
     }
 }

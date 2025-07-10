@@ -1,10 +1,11 @@
 package com.xworkz.map.runner;
 
-import com.xworkz.map.dto.SareeDto;
-import com.xworkz.map.dto.TempleDto;
+import com.xworkz.map.dto.*;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class SareeTempleRunner {
     public static void main(String[] args) {
@@ -147,6 +148,25 @@ public class SareeTempleRunner {
                 System.out.println(temple);
             }
         });
+
+        System.out.println("Both key and value pair");
+        Set<Map.Entry<SareeDto, TempleDto[]>> set=map.entrySet();
+        set.forEach(e->{
+            System.out.println("Key:"+e.getKey()+" value:"+ Arrays.toString(e.getValue()));
+        });
+
+        System.out.println("=========OR==========");
+        Set<Map.Entry<SareeDto,TempleDto[]>> entrySet=map.entrySet();
+        entrySet.forEach(entry->{
+            SareeDto sareeDto=entry.getKey();
+            TempleDto[] templeDto=entry.getValue();
+            System.out.println("SareeDto:"+sareeDto+",TempleDto:"+ Arrays.toString(templeDto));
+        });
+
+        System.out.println("Both key and value pair");
+        map.entrySet().forEach(System.out::println);
+
+
 
     }
 }

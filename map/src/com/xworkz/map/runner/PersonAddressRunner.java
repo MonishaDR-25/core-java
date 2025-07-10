@@ -1,10 +1,13 @@
 package com.xworkz.map.runner;
 
 import com.xworkz.map.dto.AddressDto;
+import com.xworkz.map.dto.BrandDto;
+import com.xworkz.map.dto.ComputerDto;
 import com.xworkz.map.dto.PersonDto;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class PersonAddressRunner {
     public static void main(String[] args) {
@@ -93,6 +96,22 @@ public class PersonAddressRunner {
 
         System.out.println("Loop only Values");
         map.values().forEach(System.out::println);
+
+        Set<Map.Entry<PersonDto,AddressDto>> set=map.entrySet();
+        set.forEach(e->{
+            System.out.println("Key:"+e.getKey()+" value:"+e.getValue());
+        });
+
+        System.out.println("=========OR==========");
+        Set<Map.Entry<PersonDto, AddressDto>> entrySet=map.entrySet();
+        entrySet.forEach(entry->{
+            PersonDto personDto=entry.getKey();
+            AddressDto addressDto=entry.getValue();
+            System.out.println("PersonDto:"+personDto+",AddressDto:"+addressDto);
+        });
+
+        System.out.println("Both key and value pair");
+        map.entrySet().forEach(System.out::println);
 
 
     }

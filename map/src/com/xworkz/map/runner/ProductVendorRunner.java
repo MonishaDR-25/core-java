@@ -1,11 +1,11 @@
 package com.xworkz.map.runner;
 
-import com.xworkz.map.dto.ProductDto;
-import com.xworkz.map.dto.VendorDto;
+import com.xworkz.map.dto.*;
 
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class ProductVendorRunner {
     public static void main(String[] args) {
@@ -97,6 +97,22 @@ public class ProductVendorRunner {
         map.values().forEach(System.out::println);
 
 
+        System.out.println("Both key and value pair");
+        Set<Map.Entry<ProductDto, VendorDto>> set=map.entrySet();
+        set.forEach(e->{
+            System.out.println("Key:"+e.getKey()+" value:"+e.getValue());
+        });
+
+        System.out.println("=========OR==========");
+        Set<Map.Entry<ProductDto,VendorDto>> entrySet=map.entrySet();
+        entrySet.forEach(entry->{
+            ProductDto productDto=entry.getKey();
+            VendorDto vendorDto=entry.getValue();
+            System.out.println("ProductDto:"+productDto+",VendorDto:"+vendorDto);
+        });
+
+        System.out.println("Both key and value pair");
+        map.entrySet().forEach(System.out::println);
 
     }
 }
