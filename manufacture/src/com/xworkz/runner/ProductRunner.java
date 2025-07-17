@@ -40,12 +40,12 @@ public class ProductRunner {
                 .min((a, b) -> Double.compare(a.getDiscount(), b.getDiscount()));
         minDiscount.ifPresent(System.out::println);
 
-        System.out.println("\n9. Product with latest manufacturedDate");
+        System.out.println("9. Product with latest manufacturedDate");
         Optional<ProductDto> latestDate = collection.stream()
                 .max((a, b) -> a.getManufactureDate().compareTo(b.getManufactureDate()));
         latestDate.ifPresent(System.out::println);
 
-        System.out.println("\n10. Product with max costPerItem");
+        System.out.println("10. Product with max costPerItem");
         Optional<ProductDto> maxCost = collection.stream()
                 .max((a, b) -> Double.compare(a.getCostPerItem(), b.getCostPerItem()));
         maxCost.ifPresent(System.out::println);
