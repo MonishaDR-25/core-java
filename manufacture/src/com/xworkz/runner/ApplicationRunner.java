@@ -49,6 +49,5 @@ public class ApplicationRunner {
         collection.stream().flatMap(a -> a.getOwners().stream()).map(Owner::getEmail).distinct().forEach(System.out::println);
 
 
-
     }
 }
