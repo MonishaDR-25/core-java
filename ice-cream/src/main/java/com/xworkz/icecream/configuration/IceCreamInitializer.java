@@ -27,4 +27,5 @@ public class IceCreamInitializer extends AbstractAnnotationConfigDispatcherServl
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
 }

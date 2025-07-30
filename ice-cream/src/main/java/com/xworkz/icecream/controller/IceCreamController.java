@@ -28,17 +28,11 @@ public class IceCreamController {
         if(saved) {
             Double total = iceCreamService.getTotal(iceCreamDto);
             System.out.println(total);
-//            model.addAttribute("dto",iceCreamDto);
-//            model.addAttribute("name", iceCreamDto.getName());
-//            model.addAttribute("flavour", iceCreamDto.getFlavour());
-//            model.addAttribute("quantity", iceCreamDto.getQuantity());
-//            model.addAttribute("takeAway", iceCreamDto.getTakeAway());
-//            model.addAttribute("addOns", iceCreamDto.getAddOns());
-//            model.addAttribute("coupon", iceCreamDto.getCoupon());
-            return "/OrderSuccess.jsp";
+
+            return "OrderSuccess";
         } else{
             model.addAttribute("error","Invlaid Values");
-            return "/Order.jsp";
+            return "Order";
         }
 
     }
