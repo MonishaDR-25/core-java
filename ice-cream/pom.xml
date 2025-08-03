@@ -1,12 +1,20 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.xworkz</groupId>
-  <artifactId>ice-cream</artifactId>
+  <groupId>org.example</groupId>
+  <artifactId>ice-cream-shop</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ice-cream Maven Webapp</name>
+  <name>ice-cream-shop Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <properties>
+    <spring.version>5.3.39</spring.version>
+    <servelt.version>3.1.0</servelt.version>
+    <lombok.version>1.18.38</lombok.version>
+    <hibernate.validator.version>6.2.5.Final</hibernate.validator.version>
+    <validator.version>2.0.1.Final</validator.version>
+    <slf4j.version>2.0.17</slf4j.version>
+  </properties>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -14,18 +22,51 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>5.2.12.RELEASE</version>
+      <version>${spring.version}</version>
     </dependency>
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-      <version>3.1.0</version>
+      <version>${servelt.version}</version>
     </dependency>
+
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.hibernate.validator</groupId>
+      <artifactId>hibernate-validator</artifactId>
+      <version>${hibernate.validator.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.validation</groupId>
+      <artifactId>validation-api</artifactId>
+      <version>${validator.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+
   </dependencies>
   <build>
-    <finalName>ice-cream</finalName>
+    <finalName>ice-cream-shop</finalName>
   </build>
 </project>
