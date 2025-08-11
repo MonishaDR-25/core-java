@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Getter
@@ -28,6 +29,12 @@ public class IceCreamDto {
     @Max(30)
     private Integer quantity;
     private Double total;
+
+    @NotNull
+    private String email;
+
+    @NotNull
+    private String otp;
 
     private MultipartFile multipartFile;
 
